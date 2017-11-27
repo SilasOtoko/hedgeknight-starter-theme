@@ -43,37 +43,66 @@
 
   <header>
 
-		<div class="header-main clearfix">
-			<div class="padding-wrapper clearfix">
+		<div class="header-main">
+			<div class="padding-wrapper flex-wrapper">
 				<div class="header-logo">
-					<a href="<?php bloginfo( 'url' ); ?>">
-		      	<img style="max-width: 400px" src="<?php bloginfo( 'template_directory' ); ?>/img/main-logo.svg" />
-					</a>
+					
+					<?php if( function_exists( 'get_field' ) ): ?>
+
+						<?php
+
+		          $image = get_field( 'header_logo', 'options' );
+		          $size = 'logo';
+		          $src = $image['url'];
+		          $alt = $image['alt'];
+		          $title = $image['title'];
+		          $thumb = $image['sizes'][ $size ];
+		          $caption = $image['caption'];
+
+		        if( $image ): ?>
+
+		          <a href="<?php bloginfo( 'url' ); ?>">
+
+		            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>">
+
+		          </a>
+
+		        <?php endif; ?>
+
+		      <?php endif; ?>
+
 		    </div>
-
-				<nav role="navigation" class="main-navigation">
-
-		      <?php
-					 	$defaults = array(
-						 	'container' => false,
-						 	'div' => false,
-						 	'theme_location' => 'main-menu'
-					 	);
-					 wp_nav_menu( $defaults );
-				 	?>
-
-				</nav>
 
 				<div class="mobile-menu clearfix">
 
-					<div onclick="openNav()" class="toggle-sidebar">
+					<button tabindex="0" onclick="openNav()" class="toggle-sidebar">
 						<div class="hamburger-label">Menu</div>
-						<div class="hamburger">
-			        <span></span>
-			        <span></span>
-			        <span></span>
-			      </div>
-					</div>
+						<div class="hamburger" style="max-width: 40px;">
+
+							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+								<g>
+									<g>
+										<path class="st0" d="M491.3,235.3H20.7C9.3,235.3,0,244.6,0,256s9.3,20.7,20.7,20.7h470.6c11.4,0,20.7-9.3,20.7-20.7
+											C512,244.6,502.7,235.3,491.3,235.3z"/>
+									</g>
+								</g>
+								<g>
+									<g>
+										<path class="st0" d="M491.3,78.4H20.7C9.3,78.4,0,87.7,0,99.1s9.3,20.7,20.7,20.7h470.6c11.4,0,20.7-9.3,20.7-20.7
+											S502.7,78.4,491.3,78.4z"/>
+									</g>
+								</g>
+								<g>
+									<g>
+										<path class="st0" d="M491.3,392.2H20.7C9.3,392.2,0,401.5,0,412.9s9.3,20.7,20.7,20.7h470.6c11.4,0,20.7-9.3,20.7-20.7
+											S502.7,392.2,491.3,392.2z"/>
+									</g>
+								</g>
+							</svg>
+
+						</div>
+					</button>
 
 					<div id="mySidenav" class="sidenav">
 						<div class="sidenav-wrapper">
@@ -81,11 +110,11 @@
 							<div id="sidebar">
 								<div class="mobile-nav-header clearfix">
 									<div class="close-sidenav clearfix">
-										<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+										<button tabindex="0" class="closebtn" onclick="closeNav()">
 
 											<img src="<?php bloginfo( 'template_directory' ); ?>/img/close.svg" />
 
-										</a>
+										</button>
 
 									</div>
 								</div>
@@ -114,13 +143,11 @@
 						/* Set the width of the side navigation to 250px */
 						function openNav() {
 							jQuery('.sidenav').toggleClass('sidenav-open');
-							jQuery('html, body').toggleClass('nav-open');
 						}
 
 						/* Set the width of the side navigation to 0 */
 						function closeNav() {
 							jQuery('.sidenav').toggleClass('sidenav-open');
-							jQuery('html, body').toggleClass('nav-open');
 						}
 					</script>
 

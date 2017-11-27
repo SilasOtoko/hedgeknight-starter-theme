@@ -11,6 +11,8 @@ add_image_size( 'icon', 120, 120, true );
 
 add_image_size( 'medium', 800, 600, true );
 
+add_image_size( 'logo', 200, 200 );
+
 
 
 function register_theme_menus() {
