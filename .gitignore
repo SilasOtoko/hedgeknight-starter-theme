@@ -1,0 +1,63 @@
+# Thanks to: https://gist.github.com/jdbartlett/444295
+
+# Ignore everything in the root except the "wp-content" directory.
+/*
+!.gitignore
+!wp-content/
+
+# Ignore everything in the "wp-content" directory, except the "plugins" and "themes" directories.
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+
+# Ignore everything in the "plugins" directory, except the plugins you specify
+wp-content/plugins/*
+!wp-content/plugins/advanced-custom-fields-pro/
+!wp-content/plugins/contact-form-7/
+!wp-content/plugins/contact-form-submissions/
+!wp-content/plugins/safe-svg/
+!wp-content/plugins/ewww-image-optimizer/
+!wp-content/plugins/sucuri-scanner/
+!wp-content/plugins/wp-local-toolbox/
+
+# Ignore everything in the "themes" directory, except the themes you specify
+wp-content/themes/*
+!wp-content/themes/sleeping_giant/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
