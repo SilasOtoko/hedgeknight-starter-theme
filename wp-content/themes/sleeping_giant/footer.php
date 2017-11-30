@@ -7,6 +7,10 @@
     </div>
   </section>
 
+  <a href="#page-top" class="scroll-button">
+    <img src="<?php bloginfo( 'template_directory' ); ?>/img/arrow-up.svg" />
+  </a>
+
 </footer>
 
 <?php wp_footer(); ?>
