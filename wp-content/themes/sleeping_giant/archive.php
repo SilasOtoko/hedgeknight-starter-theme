@@ -1,33 +1,69 @@
 <?php get_header(); ?>
 
-<?php if ( have_posts() ) : ?>
+<main class="site-main subpage" role="main">
+  <div class="padding-wrapper">
+    <div class="text-wrapper">
 
-	<div class="page-header">
-		<?php
-			the_archive_title( '<h1 class="page-title">', '</h1>' );
-			the_archive_description( '<div class="archive-description">', '</div>' );
-		?>
-	</div><!-- .page-header -->
+      <div class="main-wordpress-content">
 
-		<?php
-		/* Start the Loop */
-		while ( have_posts() ) : the_post();
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-			/*
-			 * Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'template-parts/content', get_post_format() );
+        	<?php if( !is_front_page() ): ?>
 
-		endwhile;
+          	<h1><?php the_title(); ?></h1>
 
-		the_posts_navigation();
+          <?php endif; ?>
 
-	else :
+          <?php the_content(); ?>
 
-		get_template_part( 'template-parts/content', 'none' );
+        <?php endwhile; endif; wp_reset_query(); ?>
 
-	endif; ?>
+      </div>
+
+      <div class="blog-posts">
+
+        <?php query_posts('post_type=post&post_status=publish&posts_per_page=3&paged='. get_query_var('paged')); ?>
+
+        <?php if ( have_posts() ) : ?>
+
+        	<?php while ( have_posts() ) : the_post(); ?>
+
+	          <div class="blog-post">
+
+	            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	            <div class="blog-snippet"><?php the_excerpt(); ?></div>
+	            <span class="button-wrapper"><a class="button" href="<?php the_permalink(); ?>">Read More</a></span>
+
+	          </div>
+
+	        <?php endwhile; ?>
+
+	        <?php if( function_exists( 'wp_pagenavi') ): ?>
+
+	          <div class="navigation">
+	            <?php wp_pagenavi(); ?>
+	          </div><!-- /.navigation -->
+
+	        <?php else: ?>
+
+	        	<?php the_posts_pagination( array(
+							'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
+							'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+							'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+						) ); ?>
+
+	        <?php endif; ?>
+
+	        <?php else : ?>
+
+	          <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+        <?php endif; wp_reset_query(); ?>
+
+      </div>
+
+    </div>
+  </div>
+</main>
 
 <?php get_footer(); ?>

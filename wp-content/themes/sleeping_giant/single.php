@@ -25,7 +25,7 @@
 
         <?php if( get_post_type() == 'post' ): ?>
 
-          <a href="/blog" class="button">< Back to all posts</a>
+          <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="button">< Back to all posts</a>
 
         <?php endif; ?>
 

@@ -48,6 +48,20 @@ function sg_theme_js(){
 add_action('wp_enqueue_scripts', 'sg_theme_js' );
 
 
+// Add Editor back to default Posts page
+function fix_no_editor_on_posts_page($post) {
+
+   if( $post->ID != get_option( 'page_for_posts' ) ) { return; }
+
+   remove_action( 'edit_form_after_title', '_wp_posts_page_notice' );
+   add_post_type_support( 'page', 'editor' );
+
+ }
+
+ // This is applied in a namespaced file - so amend this if you're not namespacing
+ add_action( 'edit_form_after_title', 'fix_no_editor_on_posts_page', 0 );
+
+
 // Remove query strings from static resources
 
 function remove_css_js_ver( $src ) {
