@@ -19,6 +19,9 @@
 
 
             <?php the_content(); ?>
+
+            <p>Categories: <?php the_category(' | '); ?></p>
+
           </div>
 
         <?php endwhile; endif; ?>

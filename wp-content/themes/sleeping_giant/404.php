@@ -10,7 +10,10 @@
       </div>
 
       <div class="page-content">
-        <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try going back to the homepage and find the page from there?' ); ?></p>
+        <p>It looks like nothing was found at this location. Maybe try going back to the homepage and find the page from there? Or try searching for it.</p>
+
+        <?php get_search_form(); ?>
+
       </div>
 
     </div>

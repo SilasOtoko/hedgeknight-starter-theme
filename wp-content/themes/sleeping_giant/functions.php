@@ -47,6 +47,19 @@ function sg_theme_js(){
 }
 add_action('wp_enqueue_scripts', 'sg_theme_js' );
 
+function sleeping_giant_widgets_init() {
+  register_sidebar( array(
+    'name'          => __( 'Blog Sidebar', 'sleeping_giant' ),
+    'id'            => 'sidebar-1',
+    'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'sleeping_giant' ),
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+  ) );
+}
+add_action( 'widgets_init', 'sleeping_giant_widgets_init' );
+
 
 // Add Editor back to default Posts page
 function fix_no_editor_on_posts_page($post) {

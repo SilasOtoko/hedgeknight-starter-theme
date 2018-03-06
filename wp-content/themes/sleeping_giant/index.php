@@ -19,11 +19,11 @@
 
             <h1><?php single_post_title(); ?></h1>
 
-            <?php echo $posts_page->post_content; ?>
+            <p><?php echo $posts_page->post_content; ?></p>
 
           <?php else: ?>
 
-            <?php echo $posts_page->post_content; ?>
+            <p><?php echo $posts_page->post_content; ?></p>
 
           <?php endif; ?>
 
