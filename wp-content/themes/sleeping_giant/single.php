@@ -20,7 +20,17 @@
 
             <?php the_content(); ?>
 
-            <p>Categories: <?php the_category(' | '); ?></p>
+            <?php if( get_the_category() ): ?>
+
+              <p>Categories: <?php the_category(' | '); ?></p>
+
+            <?php endif; ?>
+
+            <?php if( get_tags() ): ?>
+
+              <p><?php the_tags('Tags: ', ' | '); ?></p>
+
+            <?php endif; ?>
 
           </div>
 

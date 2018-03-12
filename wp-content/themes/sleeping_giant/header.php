@@ -61,7 +61,7 @@
 
 		        if( $image ): ?>
 
-		          <a href="<?php bloginfo( 'url' ); ?>">
+		          <a href="<?php echo esc_url( home_url() ); ?>">
 
 		            <img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>">
 
@@ -125,7 +125,7 @@
 										<div class="close-sidenav clearfix">
 											<button tabindex="0" class="closebtn" onclick="closeNav()">
 
-												<img src="<?php bloginfo( 'template_directory' ); ?>/img/close.svg" />
+												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/close.svg" />
 
 											</button>
 

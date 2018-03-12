@@ -26,12 +26,9 @@
         padding: 20px 15px;
         text-decoration: none;
         &:hover {
-          background-color: #666;
+          color: #666;
         }
         &:focus {
-          background-color: #666;
-          color: #fff;
-          outline: none;
         }
       }
     }
@@ -46,7 +43,6 @@
       color: #333;
       width: 100%;
       &:hover {
-        background-color: #666;
         color: #fff;
       }
     }
