@@ -42,6 +42,10 @@
   display: -webkit-flex;
 }
 
+.site-content {
+  min-height: 400px;
+}
+
 @media (max-width: 980px) {
   .flex-wrapper.content-blocks {
     display: block;

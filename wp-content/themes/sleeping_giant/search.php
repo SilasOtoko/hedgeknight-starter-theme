@@ -14,7 +14,7 @@
 
             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <div class="blog-snippet"><?php the_excerpt(); ?></div>
-            <a class="button" href="<?php the_permalink(); ?>">Read More</a>
+            <a class="button button-primary" href="<?php the_permalink(); ?>">Read More</a>
 
           </article>
 
@@ -22,23 +22,27 @@
 
       <?php endif; ?>
 
-      <?php if( function_exists( 'wp_pagenavi') ): ?>
+      <div class="page-links">
 
-        <div class="navigation">
+        <?php if( function_exists( 'wp_pagenavi') ): ?>
 
-          <?php wp_pagenavi(); ?>
+          <div class="navigation">
 
-        </div>
+            <?php wp_pagenavi(); ?>
 
-      <?php else: ?>
+          </div>
 
-        <?php the_posts_pagination( array(
-          'prev_text'          => __( 'Previous page', 'sleeping_giant' ),
-          'next_text'          => __( 'Next page', 'sleeping_giant' ),
-          'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sleeping_giant' ) . ' </span>',
-        ) ); ?>
+        <?php else: ?>
 
-      <?php endif; ?>
+          <?php the_posts_pagination( array(
+            'prev_text'          => __( 'Previous page', 'sleeping_giant' ),
+            'next_text'          => __( 'Next page', 'sleeping_giant' ),
+            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sleeping_giant' ) . ' </span>',
+          ) ); ?>
+
+        <?php endif; ?>
+
+      </div>
 
     </div>
   </div>

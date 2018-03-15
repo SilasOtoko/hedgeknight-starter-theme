@@ -3,29 +3,59 @@
   <main class="site-main" role="main">
     <div class="padding-wrapper">
 
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <?php if( have_posts() ): ?>
 
-        <div class="text-wrapper">
+        <?php while( have_posts() ): the_post(); ?>
 
-          <header class="entry-header">
+          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <?php if( !is_front_page() ): ?>
+            <div class="text-wrapper">
 
-              <h1><?php the_title(); ?></h1>
+              <header class="entry-header">
 
-            <?php endif; ?>
+                <?php if( !is_front_page() ): ?>
 
-          </header>
+                  <h1><?php the_title(); ?></h1>
 
-          <div class="entry-content">
+                <?php endif; ?>
 
-            <?php the_content(); ?>
-            
-          </div>
+              </header>
 
-        </div>
+              <div class="entry-content">
 
-      </article>
+                <?php the_content(); ?>
+
+                <div class="page-links">
+
+                  <?php if( function_exists( 'wp_pagenavi') ): ?>
+
+                    <div class="navigation">
+
+                      <?php wp_pagenavi(); ?>
+
+                    </div>
+
+                  <?php else: ?>
+
+                    <?php the_posts_pagination( array(
+                      'prev_text'          => __( 'Previous page', 'sleeping_giant' ),
+                      'next_text'          => __( 'Next page', 'sleeping_giant' ),
+                      'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sleeping_giant' ) . ' </span>',
+                    ) ); ?>
+
+                  <?php endif; ?>
+
+                </div>
+                
+              </div>
+
+            </div>
+
+          </article>
+
+        <?php endwhile; ?>
+
+      <?php endif; ?>
 
     </div>
   </main>

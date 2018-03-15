@@ -39,7 +39,7 @@
 
               <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <div class="blog-snippet"><?php the_excerpt(); ?></div>
-              <a class="button" href="<?php the_permalink(); ?>">Read More</a>
+              <a class="button button-primary" href="<?php the_permalink(); ?>">Read More</a>
 
             </article>
 
