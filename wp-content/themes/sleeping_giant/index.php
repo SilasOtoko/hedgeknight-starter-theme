@@ -2,6 +2,7 @@
 
 <main class="site-main subpage" role="main">
   <div class="padding-wrapper">
+
     <div class="text-wrapper">
 
       <?php 
@@ -13,7 +14,7 @@
 
       <?php if( $posts_page->post_content ): ?>
 
-        <div class="main-wordpress-content">
+        <header class="page-header">
 
           <?php if( !is_front_page() ): ?>
 
@@ -27,53 +28,68 @@
 
           <?php endif; ?>
 
-        </div>
+        </header>
 
       <?php endif; ?>
 
-      <div class="blog-posts">
 
-        <?php if ( have_posts() ) : ?>
+      <?php if ( have_posts() ) : ?>
+
+        <div class="post-items">
 
           <?php while ( have_posts() ) : the_post(); ?>
 
-            <div class="blog-post">
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-              <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-              <div class="blog-snippet"><?php the_excerpt(); ?></div>
-              <a class="button" href="<?php the_permalink(); ?>">Read More</a>
+              <div class="entry-header">
 
-            </div>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+
+              </div>
+              
+              <div class="entry-content">
+
+                <div class="entry-excerpt"><?php the_excerpt(); ?></div>
+                <a class="button button-primary" href="<?php the_permalink(); ?>">Read More</a>
+
+              </div>
+
+            </article>
 
           <?php endwhile; ?>
 
-        <?php else : ?>
+        </div>
 
-          <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <?php else : ?>
 
-        <?php endif; wp_reset_query(); ?>
+        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+      <?php endif; wp_reset_query(); ?>
+
+      <div class="page-links">
+
+        <?php if( function_exists( 'wp_pagenavi') ): ?>
+
+          <div class="navigation">
+
+            <?php wp_pagenavi(); ?>
+
+          </div>
+
+        <?php else: ?>
+
+          <?php the_posts_pagination( array(
+            'prev_text'          => __( 'Previous page', 'sleeping_giant' ),
+            'next_text'          => __( 'Next page', 'sleeping_giant' ),
+            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sleeping_giant' ) . ' </span>',
+          ) ); ?>
+
+        <?php endif; ?>
 
       </div>
 
-      <?php if( function_exists( 'wp_pagenavi') ): ?>
-
-        <div class="navigation">
-
-          <?php wp_pagenavi(); ?>
-
-        </div>
-
-      <?php else: ?>
-
-        <?php the_posts_pagination( array(
-          'prev_text'          => __( 'Previous page', 'sleeping_giant' ),
-          'next_text'          => __( 'Next page', 'sleeping_giant' ),
-          'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'sleeping_giant' ) . ' </span>',
-        ) ); ?>
-
-      <?php endif; ?>
-
     </div>
+
   </div>
 </main>
 

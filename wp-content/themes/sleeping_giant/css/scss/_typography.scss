@@ -12,8 +12,6 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1.5em 0 0.25em 0;
-  padding: 0 0 0.25em 0;
   font-family: 'Libre Baskerville', serif;
 }
 
@@ -23,17 +21,19 @@ p {
   font-size: 1.125em;
 }
 
-p + h1,
-p + h2,
-p + h3,
-p + h4,
-p + h5,
-p + h6 {
-  margin-top: 40px;
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  margin: 1.5em 0 0.25em 0;
+  padding: 0 0 0.25em 0;
 }
 
 h1 {
   line-height: 1.43;
+  font-size: 2.5em;
 }
 
 h2 {

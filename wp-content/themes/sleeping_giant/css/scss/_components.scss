@@ -1,7 +1,15 @@
 .button {
   padding: 10px 20px;
-  border-radius: 5px;
   margin: 20px 0 0;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button-primary {
+  background-color: #666;
+  color: #fff;
 }
 
 .scroll-button {
@@ -24,3 +32,19 @@ blockquote {
   margin: 20px 0;
   padding-left: 40px;
 }
+
+.page-header {
+  padding: 60px 0;
+}
+
+.post-items {
+  .post {
+    padding-bottom: 40px;
+  }
+}
+
+.page-links,
+.post-items .post {
+  margin: 1.5em 0 0;
+}
+

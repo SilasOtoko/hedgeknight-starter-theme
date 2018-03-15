@@ -14,7 +14,7 @@ add_image_size( 'medium', 800, 600, true );
 add_image_size( 'logo', 200, 200 );
 
 
-
+// Register Menus
 function register_theme_menus() {
   register_nav_menus(
     array(
@@ -25,10 +25,12 @@ function register_theme_menus() {
 }
 add_action( 'init', 'register_theme_menus');
 
+// Enable Options Tab
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page();
 }
 
+// Set up Style References
 function sg_theme_styles(){
 
   wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize-min.css');
@@ -38,6 +40,7 @@ function sg_theme_styles(){
 }
 add_action( 'wp_enqueue_scripts', 'sg_theme_styles' );
 
+// Set up Script References
 function sg_theme_js(){
 
   wp_enqueue_script( 'main_js', get_template_directory_uri() . '/js/main-min.js', array('jquery'), '', true );
@@ -45,6 +48,7 @@ function sg_theme_js(){
 }
 add_action('wp_enqueue_scripts', 'sg_theme_js' );
 
+// Register Widget
 function sleeping_giant_widgets_init() {
   register_sidebar( array(
     'name'          => __( 'Blog Sidebar', 'sleeping_giant' ),
