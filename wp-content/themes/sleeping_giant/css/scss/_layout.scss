@@ -1,3 +1,15 @@
+body {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-content {
+  flex: 1;
+}
+
 .padding-wrapper {
   padding: 0 5%;
 }
