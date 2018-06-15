@@ -7,7 +7,7 @@
 		"uuidString": "CFDD330F-F35C-40F4-8923-DE96A167DEC1"
 		}
 	],
-"creatorBuild": "26330",
+"creatorBuild": "26680",
 "files": {
 	"\/404.php": {
 		"cB": 0,
@@ -328,7 +328,8 @@
 	"creationDate": 518558429,
 	"displayValue": "sleeping_giant",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-fry"
+	"iconImageName": "meme-fry",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2131,6 +2132,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {

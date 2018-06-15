@@ -14,7 +14,7 @@
         }; ?>
 
         <p class="legal">&copy; <?php echo $date; ?> <?php bloginfo( 'name' ); ?></p>
-        <p class="credits">Site design by: <a href="http://sleepinggc.com">Sleeping Giant Creative</a></p>
+        <p class="credits">Website by: <a href="http://sleepinggc.com">Sleeping Giant Creative</a></p>
       </div>
     </section>
 
