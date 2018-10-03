@@ -1,0 +1,246 @@
+.desktop-menu {
+  margin-left: auto;
+  .menu-item-has-children {
+    position: relative;
+    &.dropdown-active {
+      .sub-menu {
+        left: 0;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  ul {
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    padding: 0;
+    margin: 0;
+    margin-left: -10px;
+    li {
+      list-style: none;
+      a {
+        padding: 20px 15px;
+        text-decoration: none;
+        &:hover {
+          color: #666;
+        }
+        &:focus {
+        }
+      }
+    }
+  }
+  .sub-menu {
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    li {
+      width: 100%;
+    }
+    a {
+      color: #333;
+      width: 100%;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+.sub-menu {
+  transform: scale(0);
+  transition: transform 250ms;
+  position: absolute;
+  left: -9999px;
+  top: 100%;
+  min-width: 250px;
+  background-color: #eee;
+  padding: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    a {
+      display: inline-block;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: relative;
+}
+
+.mobile-navigation {
+  padding: 0 30px 30px;
+}
+
+.toggle-sidebar {
+  margin-right: 10px;
+  display: none;
+  padding: 15px 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    background-color: #666;
+    border: 0;
+    outline: 0;
+    .hamburger-label {
+      color: #fff;
+    }
+    .hamburger svg {
+      fill: #fff;
+    }
+  }
+}
+
+.hamburger-label {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.hamburger {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  svg {
+    fill: #333;
+    margin-top: 5px;
+  }
+}
+
+/* The side navigation menu */
+
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  top: 0;
+  right: -15px;
+  background-color: #eee;
+  transform: translate3d(400px, 0, 0);
+  transition: all 160ms cubic-bezier(0.82, 1.02, 0.84, 1.01) 0s;
+  max-width: 400px;
+  overflow-y: scroll;
+}
+
+.sidenav-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav-open {
+  transform: translateX(0);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1140px) {
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: inline-block;
+    margin-left: auto;
+  }
+  .toggle-sidebar {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+  }
+}
+
+#sidebar {
+  text-align: left;
+  height: 100%;
+  max-width: 400px;
+  ul {
+    padding: 0;
+    transition: all 1s;
+    margin-top: 0;
+    li {
+      display: block;
+      transition: padding 250ms;
+      &:hover {
+        a {
+          padding-left: 40px;
+        }
+      }
+      a {
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+        font-size: 1.25em;
+        width: 100%;
+        padding: 10px 20px;
+        margin: 5px 0;
+        color: #333;
+      }
+    }
+  }
+}
+
+/* The navigation menu links */
+
+.mobile-nav-header {
+  position: relative;
+  width: 100%;
+}
+
+.close-sidenav {
+  padding: 10px;
+  text-align: right;
+}
+
+.closebtn {
+  z-index: 3000;
+  display: inline-block;
+  padding: 10px 20px 10px 10px;
+  line-height: 1;
+  margin: 20px 0;
+  background-color: inherit;
+  border: 0;
+  img {
+    height: 30px;
+    width: 30px;
+    transition: transform 150ms;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .sidenav {
+    transition: all 0.25s;
+  }
+  #sidebar a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 580px) {
+  .mobile-menu {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidenav {
+    width: 100%;
+    max-width: 400px;
+  }
+}
