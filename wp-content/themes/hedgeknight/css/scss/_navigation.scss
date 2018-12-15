@@ -23,12 +23,21 @@
     li {
       list-style: none;
       a {
-        padding: 20px 15px;
+        padding: 10px 15px;
         text-decoration: none;
+        color: $blue;
+        font-size: .875rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-top: 5px solid transparent;
+        position: relative;
+        transition: opacity 150ms;
         &:hover {
-          color: #666;
+          cursor: pointer;
+          opacity: 0.6;
         }
         &:focus {
+          opacity: 0.6;
         }
       }
     }
@@ -81,12 +90,13 @@
 }
 
 .toggle-sidebar {
-  margin-right: 10px;
+  margin-left: auto;
   display: none;
   padding: 15px 20px;
   border: 0;
   outline: 0;
   border-radius: 0;
+  background-color: transparent;
   &:hover {
     cursor: pointer;
   }

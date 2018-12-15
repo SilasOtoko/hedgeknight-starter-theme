@@ -1,0 +1,79 @@
+@import 'variables';
+
+input,
+select,
+textarea {
+  border: 1px solid #ccc;
+  padding: 10px 5px;
+  border-radius: 5px;
+  &:focus {
+    outline-color: #009ddc;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+
+input[type='checkbox'] {
+  vertical-align: top;
+  border: 1px solid #b4b9be;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+  display: inline-block;
+  margin: -4px 4px 0 0;
+  height: 20px !important;
+  clear: none;
+  outline-color: #009ddc;
+  padding: 0 !important;
+  text-align: center;
+  vertical-align: top;
+  width: 20px;
+  min-width: 20px !important;
+  -webkit-appearance: none;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.05s border-color ease-in-out;
+  transition: 0.05s border-color ease-in-out;
+  &:checked::before {
+    content: '✔';
+    width: 20px;
+  }
+}
+
+input[type='button'] {
+  padding: 20px 30px 15px;
+  text-decoration: none;
+  border: 0;
+  border-radius: 5px;
+  min-width: 200px;
+  font-family: 'PT Sans', serif;
+  line-height: 1;
+  text-align: center;
+  transition: background-color 150ms, transform 150ms;
+  background-color: $blue;
+  color: #fff;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    transform: translateY(-2px);
+    background-color: $blue;
+  }
+}
+
+label {
+  font-family: 'PT Sans', serif;
+  color: #444;
+}
+
+.nf-form-fields-required {
+  opacity: 0;
+}
+
+.ninja-forms-req-symbol {
+  opacity: 0;
+}

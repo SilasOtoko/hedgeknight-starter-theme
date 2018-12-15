@@ -2,14 +2,33 @@
   padding: 10px 20px;
   text-decoration: none;
   border: 0;
+  border-radius: 3px;
+  min-width: 200px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
   &:hover {
     cursor: pointer;
   }
 }
 
-.button-primary {
-  background-color: #666;
-  color: #fff;
+.button-wrapper {
+  .button {
+    margin-right: 10px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.button--primary {
+  background-color: $blue;
+  color: $white;
+}
+
+.button--accent {
+  background-color: $yellow;
+  color: $white;
 }
 
 .scroll-button {

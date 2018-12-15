@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="site-main subpage" role="main">
+<main id="content" class="site__content" role="main">
   <div class="padding-wrapper">
 
     <div class="text-wrapper">
