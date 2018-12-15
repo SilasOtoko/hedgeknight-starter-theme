@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 
-  <?php get_template_part( 'template-parts/content', 'page-banner' ); ?>
-
-  <main id="content" class="site__content" role="main">
+  <main class="site-main" role="main">
     <div class="padding-wrapper">
 
       <?php if( have_posts() ): ?>
@@ -17,7 +15,7 @@
 
                 <?php if( !is_front_page() ): ?>
 
-                  <h1 class="slideInLeft"><?php the_title(); ?></h1>
+                  <h1><?php the_title(); ?></h1>
 
                 <?php endif; ?>
 

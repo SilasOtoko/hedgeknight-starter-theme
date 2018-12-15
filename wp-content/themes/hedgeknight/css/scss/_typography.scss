@@ -5,10 +5,10 @@ $maxScreen: 50rem;
 $minFont: 1rem;
 $maxFont: 1.25rem;
 
-$h1: 2.25rem;
-$h2: 1.75rem;
-$h3: 1.25rem;
-$h4: 1.125rem;
+$h1: 3rem;
+$h2: 2.25rem;
+$h3: 1.5rem;
+$h4: 1.25rem;
 $h5: 1rem;
 
 @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
@@ -48,7 +48,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   color: #333;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1,
@@ -57,9 +57,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'PT Sans', serif;
+  font-family: 'Libre Baskerville', serif;
   margin-bottom: $baseline;
-  text-transform: uppercase;
 }
 
 p {

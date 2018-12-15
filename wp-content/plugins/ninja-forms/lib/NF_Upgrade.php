@@ -3,14 +3,8 @@
 add_action( 'wp_ajax_ninja_forms_ajax_migrate_database', 'ninja_forms_ajax_migrate_database' );
 function ninja_forms_ajax_migrate_database(){
     if( ! current_user_can( apply_filters( 'ninja_forms_admin_upgrade_migrate_database_capabilities', 'manage_options' ) ) ) return;
-    if ( ! isset( $_POST[ 'security' ] ) ) return;
-    if ( ! wp_verify_nonce( $_POST[ 'security' ], 'ninja_forms_upgrade_nonce' ) ) return;
     $migrations = new NF_Database_Migrations();
-    
-    $sure = true;
-    $really_sure = true;
-    $nuke_multisite = false;
-    $migrations->nuke( $sure, $really_sure, $nuke_multisite );
+    $migrations->nuke( true, true );
     $migrations->migrate();
     echo json_encode( array( 'migrate' => 'true' ) );
     wp_die();
@@ -24,7 +18,7 @@ function ninja_forms_ajax_import_form(){
 
     $form_id = ( isset( $_POST[ 'formID' ] ) ) ? absint( $_POST[ 'formID' ] ) : '';
 
-    WPN_Helper::delete_nf_cache( $form_id ); // Bust the cache.
+    delete_option( 'nf_form_' . $form_id ); // Bust the cache.
 
     Ninja_Forms()->form()->import_form( $import, TRUE, $form_id, TRUE );
 

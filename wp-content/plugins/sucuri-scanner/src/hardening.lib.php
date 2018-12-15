@@ -98,10 +98,6 @@ class SucuriScanHardening extends SucuriScan
             $fhandle = @fopen($target, 'w');
         }
 
-        if (!$fhandle) {
-            return false;
-        }
-
         $deny_rules = self::getRules();
         $rules_text = implode("\n", $deny_rules);
         $written = @fwrite($fhandle, "\n" . $rules_text . "\n");

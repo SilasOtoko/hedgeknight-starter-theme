@@ -27,7 +27,7 @@ $smushit_keys = array(
 	'png_to_jpg',
 	'resize-sizes',
 	'nextgen',
-	'strip_exif',
+	'keep_exif',
 	'resmush-list',
 	'resize_sizes',
 	'transparent_png',
@@ -152,9 +152,6 @@ if ( is_multisite() ) {
 //Delete Directory smush table
 global $wpdb;
 $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}smush_dir_images" );
-
-// Delete directory scan data.
-delete_option( 'wp-smush-scan-step' );
 
 //@todo: Add procedure to delete backup files
 //@todo: Update NextGen Metadata to remove Smush stats on plugin deletion

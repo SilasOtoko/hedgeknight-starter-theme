@@ -35,7 +35,7 @@ function hk_theme_styles(){
 
   wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize-min.css');
   wp_enqueue_style( 'main', get_template_directory_uri() . '/style.css');
-  wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700' );
+  wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Open+Sans:400,400i,700' );
 
 }
 add_action( 'wp_enqueue_scripts', 'hk_theme_styles' );
